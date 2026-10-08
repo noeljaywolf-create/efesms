@@ -1,0 +1,21 @@
+﻿QUOTATION
+Date: 15/07/2026
+Quote No: Q-2026-045
+Bill To: ABC Mining Ltd
+Address: 45 Samora Machel Avenue, Harare
+Customer VAT: 987654321
+Customer Email: info@abcmining.co.zw
+Phone: 0773 123 456
+
+Description Qty Price Total
+Supply 10kg ABC Extinguisher 5 20.00 100.00
+Refill Service 3 15.00 45.00
+
+Subtotal USD 145.00
+VAT Total USD 22.48
+Total USD 167.48
+Bank: CBZ Bank
+Branch: Harare
+Account Name: Salvis Trading Pvt Ltd
+Account Number: 1234567890123
+Validity: 14 Days

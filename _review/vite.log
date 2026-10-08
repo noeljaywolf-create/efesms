@@ -1,0 +1,124 @@
+
+  [32m[1mVITE[22m v8.2.2[39m  [2mready in [0m[1m1547[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.1.226:[1m5173[22m/[39m  [2mEthernet[22m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.56.1:[1m5173[22m/[39m   [2mEthernet 2[22m
+[2m8:44:31 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mpublic/_probe.html[22m
+[2m8:44:31 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mpublic/_probe.html[22m
+[2m8:51:04 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mpublic/_probe.html[22m
+[2m8:51:04 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mpublic/_probe.html[22m
+[2m8:56:18 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mpublic/_probe.html[22m
+[2m8:58:06 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mpublic/_probe.html[22m
+[2m11:06:13 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx, /src/pages/CustomerProfileDialog.tsx[22m
+[2m11:06:27 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/LoginPage.tsx[22m
+[2m11:07:30 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:07:48 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:08:08 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:08:21 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:09:06 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:09:34 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:10:09 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:10:33 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:10:47 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:12:26 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:12:41 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:12:56 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:13:10 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:13:26 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:13:43 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:13:56 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:14:30 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:14:47 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:15:17 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomerProfileDialog.tsx[22m
+[2m11:15:18 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [optimizer] bundling dependencies...
+[2m11:15:21 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mdependencies optimized: [33m@mui/icons-material/CallMerge, @mui/icons-material/History[32m[39m
+[2m11:15:34 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomerProfileDialog.tsx[22m
+[2m11:15:51 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomerProfileDialog.tsx[22m
+[2m11:16:23 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomerProfileDialog.tsx[22m
+[2m11:16:44 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomerProfileDialog.tsx[22m
+[2m11:16:56 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomerProfileDialog.tsx[22m
+[2m11:17:14 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomerProfileDialog.tsx[22m
+[2m11:17:40 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomerProfileDialog.tsx[22m
+[2m11:18:03 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomerProfileDialog.tsx[22m
+[2m11:18:22 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomerProfileDialog.tsx[22m
+[2m11:34:55 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:35:10 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:35:27 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:35:44 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:36:17 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:37:02 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:37:22 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:37:39 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomersPage.tsx[22m
+[2m11:37:52 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomerProfileDialog.tsx[22m
+[2m11:38:07 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CustomerProfileDialog.tsx[22m
+[2m11:39:49 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mpublic/_probe.html[22m
+[2m11:40:37 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mpublic/_probe.html[22m
+[2m2:20:30 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m3:18:28 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/LoginPage.tsx[22m
+[2m3:21:28 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [optimizer] bundling dependencies...
+[2m3:21:32 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mdependencies optimized: [33m@mui/icons-material/AutoAwesome, @mui/icons-material/Refresh, @mui/icons-material/TrendingUp[32m[39m
+[2m3:21:32 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32moptimized dependencies changed. reloading[39m
+[2m3:57:30 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/layouts/AppLayout.tsx[22m
+[2m4:07:19 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/layouts/AppLayout.tsx[22m
+[2m4:07:31 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/layouts/AppLayout.tsx[22m
+[2m4:08:16 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m4:08:35 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m4:10:42 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [optimizer] bundling dependencies...
+[2m4:10:54 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mdependency optimized: [33m@mui/icons-material/ReportProblem[32m[39m
+[2m7:32:36 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/AnomaliesPage.tsx[22m
+[2m7:32:36 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/AnomaliesPage.tsx[22m
+[2m7:49:44 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m7:50:40 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/JobsPage.tsx[22m
+[2m7:50:41 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [optimizer] bundling dependencies...
+[2m7:50:45 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mdependency optimized: [33m@mui/icons-material/Print[32m[39m
+[2m7:50:45 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32moptimized dependencies changed. reloading[39m
+[2m7:50:58 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/DashboardPage.tsx[22m
+[2m7:51:18 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/DashboardPage.tsx[22m
+[2m7:51:33 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/DashboardPage.tsx[22m
+[2m7:53:41 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/JobsPage.tsx[22m
+[2m7:53:52 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/JobsPage.tsx[22m
+[2m8:06:44 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/DashboardPage.tsx[22m
+[2m8:07:43 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/DashboardPage.tsx[22m
+[2m8:08:23 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/DashboardPage.tsx[22m
+[2m8:08:39 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/DashboardPage.tsx[22m
+[2m8:08:56 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/DashboardPage.tsx[22m
+[2m8:09:07 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/DashboardPage.tsx[22m
+[2m8:09:26 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/DashboardPage.tsx[22m
+[2m8:09:26 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/DashboardPage.tsx[22m
+[2m8:09:45 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/DashboardPage.tsx[22m
+[2m8:10:06 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/DashboardPage.tsx[22m
+[2m8:28:59 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m8:29:21 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m8:39:04 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/OpsModulePages.tsx[22m
+[2m8:39:22 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/OpsModulePages.tsx[22m
+[2m8:47:32 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/OpsListPage.tsx[22m
+[2m11:28:47 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/OpsListPage.tsx[22m
+[2m11:28:47 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/OpsListPage.tsx[22m
+[2m11:29:21 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/OpsModulePages.tsx[22m
+[2m11:29:49 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/OpsModulePages.tsx[22m
+[2m11:30:23 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/OpsModulePages.tsx[22m
+[2m11:30:48 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/OpsModulePages.tsx[22m
+[2m11:31:11 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/OpsModulePages.tsx[22m
+[2m11:31:32 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/JobsPage.tsx, /src/pages/EquipmentPage.tsx, /src/pages/RemindersPage.tsx, /src/pages/AnomaliesPage.tsx[22m
+[2m11:32:36 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/InventoryPage.tsx[22m
+[2m11:34:22 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/JobsPage.tsx[22m
+[2m11:35:27 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/JobsPage.tsx[22m
+[2m11:37:13 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m11:38:18 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/EquipmentPage.tsx[22m
+[2m11:40:10 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/EquipmentPage.tsx[22m
+[2m11:43:20 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/EquipmentPage.tsx[22m
+[2m11:43:39 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/EquipmentPage.tsx[22m
+[2m11:44:42 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/EquipmentPage.tsx[22m
+[2m11:45:18 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/EquipmentPage.tsx[22m
+[2m11:45:34 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/InventoryPage.tsx[22m
+[2m11:45:56 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/InventoryPage.tsx[22m
+[2m11:46:36 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/AnomaliesPage.tsx[22m
+[2m11:47:57 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/AnomaliesPage.tsx[22m
+[2m11:48:16 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/AnomaliesPage.tsx[22m
+[2m11:48:34 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/AnomaliesPage.tsx[22m
+[2m11:48:54 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/AnomaliesPage.tsx[22m
+[2m11:49:26 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/AnomaliesPage.tsx[22m
+[2m11:53:56 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/AnomaliesPage.tsx[22m
+[2m12:00:09 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/AnomaliesPage.tsx[22m
+[2m12:00:37 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/AnomaliesPage.tsx[22m

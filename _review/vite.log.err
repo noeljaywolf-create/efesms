@@ -1,0 +1,549 @@
+[2m10:59:30 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mIn HTML, <div> cannot be a descendant of <p>.
+This will cause a hydration error.
+
+  ...
+    <DialogContent dividers={true} sx={{bgcolor:"#..."}}>
+      <MuiDialogContent-root className="MuiDialogC..." ownerState={{dividers:true, ...}} ref={null} sx={{bgcolor:"#..."}}>
+        <Insertion>
+        <div className="MuiDialogC...">
+          <Box>
+            <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}}>
+              <Insertion>
+              <div className="MuiBox-roo...">
+                <Box>
+                <Box sx={{display:"grid", ...}}>
+                  <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}} sx={{display:"grid", ...}}>
+                    <Insertion>
+                    <div className="MuiBox-roo...">
+                      <InfoRow label="Customer ID" value={<ForwardRef(Chip)>}>
+                        <Box>
+                          <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}}>
+                            <Insertion>
+                            <div className="MuiBox-roo...">
+                              <Typography>
+                              <Typography variant="body2" sx={{color:"#0f...", ...}}>
+                                <MuiTypography-root as="p" ref={null} className="MuiTypogra..." ...>
+                                  <Insertion>
+>                                 <p
+>                                   className="MuiTypography-root MuiTypography-body2 css-5ujgvc-MuiTypography-root"
+>                                   style={{}}
+>                                 >
+                                    <Chip label="CUS-000002" size="small" variant="outlined" sx={{...}}>
+                                      <MuiChip-root as="div" onClick={function onClick} onKeyDown={function onKeyDown} ...>
+                                        <Insertion>
+>                                       <div
+>                                         onClick={function onClick}
+>                                         onKeyDown={function onKeyDown}
+>                                         onKeyUp={function onKeyUp}
+>                                         disabled={undefined}
+>                                         tabIndex={undefined}
+>                                         className="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefa..."
+>                                         ref={function}
+>                                       >
+                      ...
+                ...
+
+[2m10:59:30 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m<p> cannot contain a nested <div>.
+See this log for the ancestor stack trace.
+[2m11:12:29 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mReferenceError[22m: accountsLocked is not defined
+[39m > CustomersPage src/pages/CustomersPage.tsx:1145:52
+    1143 |                onChange={(e) => setForm((f) => ({ ...f, accountManager: e.target.value }))} />
+    1144 |              <TextField label="VAT number (10 digits)" value={form.vatNumber} error={!!fieldErrors.vatNumber}
+    1145 |                helperText={fieldErrors.vatNumber || (accountsLocked ? 'Accounts department & admins can edit.' : undef...
+         |                                                      ^
+    1146 |                InputProps={{ readOnly: accountsLocked }}
+    1147 |                onChange={(e) => setForm((f) => ({ ...f, vatNumber: e.target.value }))} />
+ > Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:25904:19
+ > renderWithHooks node_modules/react-dom/cjs/react-dom-client.development.js:7662:21
+ > updateFunctionComponent node_modules/react-dom/cjs/react-dom-client.development.js:10166:18
+ > beginWork node_modules/react-dom/cjs/react-dom-client.development.js:11778:17
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > performUnitOfWork node_modules/react-dom/cjs/react-dom-client.development.js:17641:21
+ > workLoopSync node_modules/react-dom/cjs/react-dom-client.development.js:17469:40
+ > renderRootSync node_modules/react-dom/cjs/react-dom-client.development.js:17450:10
+ > performWorkOnRoot node_modules/react-dom/cjs/react-dom-client.development.js:16583:34
+
+[2m11:12:29 AM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mAn error occurred in the <CustomersPage> component.
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+
+[2m11:29:53 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mIn HTML, <div> cannot be a descendant of <p>.
+This will cause a hydration error.
+
+  ...
+    <DialogContent dividers={true} sx={{bgcolor:"#..."}}>
+      <MuiDialogContent-root className="MuiDialogC..." ownerState={{dividers:true, ...}} ref={null} sx={{bgcolor:"#..."}}>
+        <Insertion>
+        <div className="MuiDialogC...">
+          <Box>
+            <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}}>
+              <Insertion>
+              <div className="MuiBox-roo...">
+                <Box>
+                <Box>
+                <Box sx={{display:"grid", ...}}>
+                  <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}} sx={{display:"grid", ...}}>
+                    <Insertion>
+                    <div className="MuiBox-roo...">
+                      <InfoRow label="Customer ID" value={<ForwardRef(Chip)>}>
+                        <Box>
+                          <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}}>
+                            <Insertion>
+                            <div className="MuiBox-roo...">
+                              <Typography>
+                              <Typography variant="body2" sx={{color:"#0f...", ...}}>
+                                <MuiTypography-root as="p" ref={null} className="MuiTypogra..." ...>
+                                  <Insertion>
+>                                 <p
+>                                   className="MuiTypography-root MuiTypography-body2 css-5ujgvc-MuiTypography-root"
+>                                   style={{}}
+>                                 >
+                                    <Chip label="CUS-000003" size="small" variant="outlined" sx={{...}}>
+                                      <MuiChip-root as="div" onClick={function onClick} onKeyDown={function onKeyDown} ...>
+                                        <Insertion>
+>                                       <div
+>                                         onClick={function onClick}
+>                                         onKeyDown={function onKeyDown}
+>                                         onKeyUp={function onKeyUp}
+>                                         disabled={undefined}
+>                                         tabIndex={undefined}
+>                                         className="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefa..."
+>                                         ref={function}
+>                                       >
+                      ...
+                ...
+
+[2m11:29:53 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m<p> cannot contain a nested <div>.
+See this log for the ancestor stack trace.
+[2m11:30:02 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mReact does not recognize the `InputProps` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `inputprops` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+[2m11:44:25 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mIn HTML, <div> cannot be a descendant of <p>.
+This will cause a hydration error.
+
+  ...
+    <DialogContent dividers={true} sx={{bgcolor:"#..."}}>
+      <MuiDialogContent-root className="MuiDialogC..." ownerState={{dividers:true, ...}} ref={null} sx={{bgcolor:"#..."}}>
+        <Insertion>
+        <div className="MuiDialogC...">
+          <Box>
+            <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}}>
+              <Insertion>
+              <div className="MuiBox-roo...">
+                <Box>
+                <Box>
+                <Box sx={{display:"grid", ...}}>
+                  <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}} sx={{display:"grid", ...}}>
+                    <Insertion>
+                    <div className="MuiBox-roo...">
+                      <InfoRow label="Customer ID" value={<ForwardRef(Chip)>}>
+                        <Box>
+                          <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}}>
+                            <Insertion>
+                            <div className="MuiBox-roo...">
+                              <Typography>
+                              <Typography variant="body2" sx={{color:"#0f...", ...}}>
+                                <MuiTypography-root as="p" ref={null} className="MuiTypogra..." ...>
+                                  <Insertion>
+>                                 <p
+>                                   className="MuiTypography-root MuiTypography-body2 css-5ujgvc-MuiTypography-root"
+>                                   style={{}}
+>                                 >
+                                    <Chip label="CUS-000001" size="small" variant="outlined" sx={{...}}>
+                                      <MuiChip-root as="div" onClick={function onClick} onKeyDown={function onKeyDown} ...>
+                                        <Insertion>
+>                                       <div
+>                                         onClick={function onClick}
+>                                         onKeyDown={function onKeyDown}
+>                                         onKeyUp={function onKeyUp}
+>                                         disabled={undefined}
+>                                         tabIndex={undefined}
+>                                         className="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefa..."
+>                                         ref={function}
+>                                       >
+                      ...
+                ...
+
+[2m11:44:25 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m<p> cannot contain a nested <div>.
+See this log for the ancestor stack trace.
+[2m11:48:00 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mIn HTML, <div> cannot be a descendant of <p>.
+This will cause a hydration error.
+
+  ...
+    <DialogContent dividers={true} sx={{bgcolor:"#..."}}>
+      <MuiDialogContent-root className="MuiDialogC..." ownerState={{dividers:true, ...}} ref={null} sx={{bgcolor:"#..."}}>
+        <Insertion>
+        <div className="MuiDialogC...">
+          <Box>
+            <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}}>
+              <Insertion>
+              <div className="MuiBox-roo...">
+                <Box>
+                <Box>
+                <Box sx={{display:"grid", ...}}>
+                  <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}} sx={{display:"grid", ...}}>
+                    <Insertion>
+                    <div className="MuiBox-roo...">
+                      <InfoRow label="Customer ID" value={<ForwardRef(Chip)>}>
+                        <Box>
+                          <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}}>
+                            <Insertion>
+                            <div className="MuiBox-roo...">
+                              <Typography>
+                              <Typography variant="body2" sx={{color:"#0f...", ...}}>
+                                <MuiTypography-root as="p" ref={null} className="MuiTypogra..." ...>
+                                  <Insertion>
+>                                 <p
+>                                   className="MuiTypography-root MuiTypography-body2 css-5ujgvc-MuiTypography-root"
+>                                   style={{}}
+>                                 >
+                                    <Chip label="CUS-000002" size="small" variant="outlined" sx={{...}}>
+                                      <MuiChip-root as="div" onClick={function onClick} onKeyDown={function onKeyDown} ...>
+                                        <Insertion>
+>                                       <div
+>                                         onClick={function onClick}
+>                                         onKeyDown={function onKeyDown}
+>                                         onKeyUp={function onKeyUp}
+>                                         disabled={undefined}
+>                                         tabIndex={undefined}
+>                                         className="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefa..."
+>                                         ref={function}
+>                                       >
+                      ...
+                ...
+
+[2m11:48:00 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m<p> cannot contain a nested <div>.
+See this log for the ancestor stack trace.
+[2m12:18:37 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mIn HTML, <div> cannot be a descendant of <p>.
+This will cause a hydration error.
+
+  ...
+    <DialogContent dividers={true} sx={{bgcolor:"#..."}}>
+      <MuiDialogContent-root className="MuiDialogC..." ownerState={{dividers:true, ...}} ref={null} sx={{bgcolor:"#..."}}>
+        <Insertion>
+        <div className="MuiDialogC...">
+          <Box>
+            <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}}>
+              <Insertion>
+              <div className="MuiBox-roo...">
+                <Box>
+                <Box>
+                <Box sx={{display:"grid", ...}}>
+                  <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}} sx={{display:"grid", ...}}>
+                    <Insertion>
+                    <div className="MuiBox-roo...">
+                      <InfoRow label="Customer ID" value={<ForwardRef(Chip)>}>
+                        <Box>
+                          <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}}>
+                            <Insertion>
+                            <div className="MuiBox-roo...">
+                              <Typography>
+                              <Typography variant="body2" sx={{color:"#0f...", ...}}>
+                                <MuiTypography-root as="p" ref={null} className="MuiTypogra..." ...>
+                                  <Insertion>
+>                                 <p
+>                                   className="MuiTypography-root MuiTypography-body2 css-5ujgvc-MuiTypography-root"
+>                                   style={{}}
+>                                 >
+                                    <Chip label="CUS-000002" size="small" variant="outlined" sx={{...}}>
+                                      <MuiChip-root as="div" onClick={function onClick} onKeyDown={function onKeyDown} ...>
+                                        <Insertion>
+>                                       <div
+>                                         onClick={function onClick}
+>                                         onKeyDown={function onKeyDown}
+>                                         onKeyUp={function onKeyUp}
+>                                         disabled={undefined}
+>                                         tabIndex={undefined}
+>                                         className="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefa..."
+>                                         ref={function}
+>                                       >
+                      ...
+                ...
+
+[2m12:18:37 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m<p> cannot contain a nested <div>.
+See this log for the ancestor stack trace.
+[2m3:34:26 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Low`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m3:34:26 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Low`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m3:37:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Low`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m3:37:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Low`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m3:42:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Low`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m3:42:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Low`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m7:40:51 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m7:40:51 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m7:42:47 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m7:42:47 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m7:42:48 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m7:50:46 AM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mYou are loading @emotion/react when it is already loaded. Running multiple instances may cause problems. This can happen if multiple versions are used, or if multiple builds of the same version are used.
+[2m8:12:41 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m8:12:41 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m8:34:17 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m8:34:18 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m8:36:52 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m8:36:52 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m8:43:32 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m8:43:32 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m8:43:33 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m8:52:08 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mIn HTML, <div> cannot be a descendant of <p>.
+This will cause a hydration error.
+
+  ...
+    <DialogContent dividers={true} sx={{bgcolor:"#..."}}>
+      <MuiDialogContent-root className="MuiDialogC..." ownerState={{dividers:true, ...}} ref={null} sx={{bgcolor:"#..."}}>
+        <Insertion>
+        <div className="MuiDialogC...">
+          <Box>
+            <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}}>
+              <Insertion>
+              <div className="MuiBox-roo...">
+                <Box>
+                <Box>
+                <Box sx={{display:"grid", ...}}>
+                  <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}} sx={{display:"grid", ...}}>
+                    <Insertion>
+                    <div className="MuiBox-roo...">
+                      <InfoRow label="Customer ID" value={<ForwardRef(Chip)>}>
+                        <Box>
+                          <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}}>
+                            <Insertion>
+                            <div className="MuiBox-roo...">
+                              <Typography>
+                              <Typography variant="body2" sx={{color:"#0f...", ...}}>
+                                <MuiTypography-root as="p" ref={null} className="MuiTypogra..." ...>
+                                  <Insertion>
+>                                 <p
+>                                   className="MuiTypography-root MuiTypography-body2 css-5ujgvc-MuiTypography-root"
+>                                   style={{}}
+>                                 >
+                                    <Chip label="CUS-000003" size="small" variant="outlined" sx={{...}}>
+                                      <MuiChip-root as="div" onClick={function onClick} onKeyDown={function onKeyDown} ...>
+                                        <Insertion>
+>                                       <div
+>                                         onClick={function onClick}
+>                                         onKeyDown={function onKeyDown}
+>                                         onKeyUp={function onKeyUp}
+>                                         disabled={undefined}
+>                                         tabIndex={undefined}
+>                                         className="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefa..."
+>                                         ref={function}
+>                                       >
+                      ...
+                ...
+
+[2m8:52:08 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m<p> cannot contain a nested <div>.
+See this log for the ancestor stack trace.
+[2m9:00:04 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m9:00:04 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m9:49:14 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/analyze/full[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:49:14 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/analyze/full[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:49:14 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/summary[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:49:14 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/customers[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:49:15 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/summary[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:49:15 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/customers[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:49:31 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/customers?[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:49:31 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/customers?[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:50:02 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/customers?[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:50:02 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/customers?[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:50:14 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/technicians[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:50:14 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/jobs[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:50:14 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/jobs[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:50:14 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/technicians[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:50:14 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/analyze/full[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:50:14 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/analyze/full[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:58:33 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/inspections[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:58:33 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/inspections[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:59:04 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/analyze/full[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:59:04 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/analyze/full[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:59:04 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/customers[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:59:04 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/summary[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:59:05 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/customers[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m9:59:05 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/summary[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m10:31:00 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/technicians[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m10:31:00 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/jobs[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m10:31:01 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/technicians[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m10:31:01 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/jobs[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m10:31:01 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/analyze/full[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m10:31:01 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/operations/analyze/full[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+[2m12:16:01 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mIn HTML, <div> cannot be a descendant of <p>.
+This will cause a hydration error.
+
+  ...
+    <MuiPaper-root as="div" ownerState={{elevation:24, ...}} className="MuiPaper-r..." ref={null} role="dialog" ...>
+      <Insertion>
+      <div className="MuiPaper-r..." role="dialog" aria-describedby={undefined} aria-labelledby="_r_b_" aria-modal={true} ...>
+        <DialogContent sx={{p:0}}>
+          <MuiDialogContent-root className="MuiDialogC..." ownerState={{sx:{p:0}, ...}} ref={null} sx={{p:0}}>
+            <Insertion>
+            <div className="MuiDialogC...">
+              <Box>
+              <Box sx={{p:2.5}}>
+                <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}} sx={{p:2.5}}>
+                  <Insertion>
+                  <div className="MuiBox-roo...">
+                    <Row label="Stock level" value={<ForwardRef(Chip)>}>
+                      <Box sx={{display:"flex", ...}}>
+                        <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}} sx={{display:"flex", ...}}>
+                          <Insertion>
+                          <div className="MuiBox-roo...">
+                            <Typography>
+                            <Typography variant="body2" sx={{fontWeight:600, ...}}>
+                              <MuiTypography-root as="p" ref={null} className="MuiTypogra..." sx={{fontWeight:600, ...}} ...>
+                                <Insertion>
+>                               <p
+>                                 className="MuiTypography-root MuiTypography-body2 css-wkwxbi-MuiTypography-root"
+>                                 style={{}}
+>                               >
+                                  <Chip size="small" label="Reorder now" sx={{bgcolor:"#...", ...}}>
+                                    <MuiChip-root as="div" onClick={function onClick} onKeyDown={function onKeyDown} ...>
+                                      <Insertion>
+>                                     <div
+>                                       onClick={function onClick}
+>                                       onKeyDown={function onKeyDown}
+>                                       onKeyUp={function onKeyUp}
+>                                       disabled={undefined}
+>                                       tabIndex={undefined}
+>                                       className="MuiChip-root MuiChip-filled MuiChip-sizeSmall MuiChip-colorDefault ..."
+>                                       ref={function}
+>                                     >
+                    ...
+
+[2m12:16:01 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m<p> cannot contain a nested <div>.
+See this log for the ancestor stack trace.
+[2m12:19:01 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m12:19:02 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m12:42:53 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m12:42:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m12:42:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mEncountered two children with the same key, `Medium`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+[2m12:43:08 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mIn HTML, <div> cannot be a descendant of <p>.
+This will cause a hydration error.
+
+  ...
+    <MuiPaper-root as="div" ownerState={{elevation:24, ...}} className="MuiPaper-r..." ref={null} role="dialog" ...>
+      <Insertion>
+      <div className="MuiPaper-r..." role="dialog" aria-describedby={undefined} aria-labelledby="_r_14_" ...>
+        <DialogContent sx={{p:0}}>
+          <MuiDialogContent-root className="MuiDialogC..." ownerState={{sx:{p:0}, ...}} ref={null} sx={{p:0}}>
+            <Insertion>
+            <div className="MuiDialogC...">
+              <Box>
+              <Box sx={{p:2.5}}>
+                <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}} sx={{p:2.5}}>
+                  <Insertion>
+                  <div className="MuiBox-roo...">
+                    <Row label="Stock level" value={<ForwardRef(Chip)>}>
+                      <Box sx={{display:"flex", ...}}>
+                        <Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}} sx={{display:"flex", ...}}>
+                          <Insertion>
+                          <div className="MuiBox-roo...">
+                            <Typography>
+                            <Typography variant="body2" sx={{fontWeight:600, ...}}>
+                              <MuiTypography-root as="p" ref={null} className="MuiTypogra..." sx={{fontWeight:600, ...}} ...>
+                                <Insertion>
+>                               <p
+>                                 className="MuiTypography-root MuiTypography-body2 css-wkwxbi-MuiTypography-root"
+>                                 style={{}}
+>                               >
+                                  <Chip size="small" label="Reorder now" sx={{bgcolor:"#...", ...}}>
+                                    <MuiChip-root as="div" onClick={function onClick} onKeyDown={function onKeyDown} ...>
+                                      <Insertion>
+>                                     <div
+>                                       onClick={function onClick}
+>                                       onKeyDown={function onKeyDown}
+>                                       onKeyUp={function onKeyUp}
+>                                       disabled={undefined}
+>                                       tabIndex={undefined}
+>                                       className="MuiChip-root MuiChip-filled MuiChip-sizeSmall MuiChip-colorDefault ..."
+>                                       ref={function}
+>                                     >
+                    ...
+
+[2m12:43:08 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m<p> cannot contain a nested <div>.
+See this log for the ancestor stack trace.

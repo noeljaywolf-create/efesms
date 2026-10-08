@@ -1,0 +1,6 @@
+@EFESMS.Api_HostAddress = http://localhost:5015
+
+GET {{EFESMS.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

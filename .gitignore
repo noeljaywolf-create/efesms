@@ -1,0 +1,9 @@
+# Local signing secrets must never be committed.
+backend/EFESMS.Api/.local-secrets/
+
+# Generated build outputs and local environment files.
+**/bin/
+**/obj/
+frontend/node_modules/
+frontend/dist/
+.env

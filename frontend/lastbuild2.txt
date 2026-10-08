@@ -1,0 +1,28 @@
+﻿
+> frontend@0.0.0 build
+> tsc -b && vite build
+
+src/pages/UsersPage.tsx(129,10): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & TypographyOwnProps & CommonProps & Omit<any, "className" | ... 9 more ... | "variantMapping">): Element | null', gave the following error.
+    Property 'component' is missing in type '{ children: string; variant: "h5"; fontWeight: number; }' but required in type '{ component: ElementType<any, keyof IntrinsicElements>; }'.
+  Overload 2 of 2, '(props: DefaultComponentProps<TypographyTypeMap<{}, "span">>): Element | null', gave the following error.
+    Type '{ children: string; variant: "h5"; fontWeight: number; }' is not assignable to type 'IntrinsicAttributes & TypographyOwnProps & CommonProps & Omit<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, "className" | ... 9 more ... | "variantMapping">'.
+      Property 'fontWeight' does not exist on type 'IntrinsicAttributes & TypographyOwnProps & CommonProps & Omit<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, "className" | ... 9 more ... | "variantMapping">'.
+src/pages/UsersPage.tsx(149,16): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & TypographyOwnProps & CommonProps & Omit<any, "className" | ... 9 more ... | "variantMapping">): Element | null', gave the following error.
+    Property 'component' is missing in type '{ children: (string | Element)[]; fontWeight: number; fontSize: number; }' but required in type '{ component: ElementType<any, keyof IntrinsicElements>; }'.
+  Overload 2 of 2, '(props: DefaultComponentProps<TypographyTypeMap<{}, "span">>): Element | null', gave the following error.
+    Type '{ children: (string | Element)[]; fontWeight: number; fontSize: number; }' is not assignable to type 'IntrinsicAttributes & TypographyOwnProps & CommonProps & Omit<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, "className" | ... 9 more ... | "variantMapping">'.
+      Property 'fontWeight' does not exist on type 'IntrinsicAttributes & TypographyOwnProps & CommonProps & Omit<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, "className" | ... 9 more ... | "variantMapping">'.
+src/pages/UsersPage.tsx(186,16): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & TypographyOwnProps & CommonProps & Omit<any, "className" | ... 9 more ... | "variantMapping">): Element | null', gave the following error.
+    Property 'component' is missing in type '{ children: (string | Element)[]; fontWeight: number; fontSize: number; }' but required in type '{ component: ElementType<any, keyof IntrinsicElements>; }'.
+  Overload 2 of 2, '(props: DefaultComponentProps<TypographyTypeMap<{}, "span">>): Element | null', gave the following error.
+    Type '{ children: (string | Element)[]; fontWeight: number; fontSize: number; }' is not assignable to type 'IntrinsicAttributes & TypographyOwnProps & CommonProps & Omit<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, "className" | ... 9 more ... | "variantMapping">'.
+      Property 'fontWeight' does not exist on type 'IntrinsicAttributes & TypographyOwnProps & CommonProps & Omit<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, "className" | ... 9 more ... | "variantMapping">'.
+src/pages/UsersPage.tsx(254,14): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & TypographyOwnProps & CommonProps & Omit<any, "className" | ... 9 more ... | "variantMapping">): Element | null', gave the following error.
+    Property 'component' is missing in type '{ children: string; variant: "body2"; color: "warning.main"; fontWeight: number; sx: { mb: number; }; }' but required in type '{ component: ElementType<any, keyof IntrinsicElements>; }'.
+  Overload 2 of 2, '(props: DefaultComponentProps<TypographyTypeMap<{}, "span">>): Element | null', gave the following error.
+    Type '{ children: string; variant: "body2"; color: "warning.main"; fontWeight: number; sx: { mb: number; }; }' is not assignable to type 'IntrinsicAttributes & TypographyOwnProps & CommonProps & Omit<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, "className" | ... 9 more ... | "variantMapping">'.
+      Property 'fontWeight' does not exist on type 'IntrinsicAttributes & TypographyOwnProps & CommonProps & Omit<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, "className" | ... 9 more ... | "variantMapping">'.

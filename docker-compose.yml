@@ -1,0 +1,52 @@
+name: efesms
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: efesms
+      POSTGRES_USER: efesms
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U efesms -d efesms"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build: ./backend/EFESMS.Api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      Urls: http://+:8080
+      ConnectionStrings__Default: Host=db;Database=efesms;Username=efesms;Password=${DB_PASSWORD:?set DB_PASSWORD in .env}
+      Jwt__Key: ${JWT_KEY:?set a 32+ char JWT_KEY in .env}
+      Jwt__Issuer: EFESMS
+      Jwt__Audience: EFESMS.Clients
+      # First boot only: seeds the admin account (change its password immediately)
+      BootstrapAdmin__Username: ${BOOTSTRAP_USER:-admin@extremefire.co.zw}
+      BootstrapAdmin__Password: ${BOOTSTRAP_PASSWORD:?set BOOTSTRAP_PASSWORD in .env}
+      BootstrapAdmin__Email: ${BOOTSTRAP_USER:-admin@extremefire.co.zw}
+      BootstrapAdmin__DisplayName: Extreme Fire Services
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      GOOGLE_ALLOWED_DOMAINS: ${GOOGLE_ALLOWED_DOMAINS:-}
+
+  web:
+    build:
+      context: ./frontend
+      args:
+        VITE_GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "${WEB_PORT:-8080}:80"
+
+volumes:
+  pgdata:

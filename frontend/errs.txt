@@ -1,0 +1,2 @@
+﻿src/pages/ReportsPage.tsx(90,8): error TS2769: No overload matches this call.
+src/pages/ServicesPage.tsx(90,8): error TS2769: No overload matches this call.
