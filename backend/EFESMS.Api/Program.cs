@@ -8,9 +8,34 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+static string NormalizeConnectionString(string conn)
+{
+    if (!conn.StartsWith("postgresql://", StringComparison.OrdinalIgnoreCase) &&
+        !conn.StartsWith("postgres://", StringComparison.OrdinalIgnoreCase))
+        return conn;
+    var u = new Uri(conn);
+    var userInfo = u.UserInfo.Split(':', 2);
+    var sb = new StringBuilder();
+    sb.Append("Host=").Append(u.Host);
+    if (u.Port > 0) sb.Append(";Port=").Append(u.Port);
+    sb.Append(";Database=").Append(u.AbsolutePath.TrimStart('/'));
+    sb.Append(";Username=").Append(userInfo[0]);
+    if (userInfo.Length > 1) sb.Append(";Password=").Append(userInfo[1]);
+    foreach (var part in u.Query.TrimStart('?').Split('&'))
+    {
+        var kv = part.Split('=', 2);
+        if (kv.Length != 2) continue;
+        var key = Uri.UnescapeDataString(kv[0]);
+        var val = Uri.UnescapeDataString(kv[1]);
+        if (key.Equals("sslmode", StringComparison.OrdinalIgnoreCase))
+            sb.Append(";SSL Mode=").Append(val);
+    }
+    return sb.ToString();
+}
+
 // --- PostgreSQL + EF Core ---
-var conn = builder.Configuration.GetConnectionString("Default")
-    ?? throw new InvalidOperationException("ConnectionStrings:Default must be configured.");
+var conn = NormalizeConnectionString(builder.Configuration.GetConnectionString("Default")
+    ?? throw new InvalidOperationException("ConnectionStrings:Default must be configured."));
 builder.Services.AddDbContext<AppDbContext>(o => o.UseNpgsql(conn, npgsql =>
     npgsql.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
 

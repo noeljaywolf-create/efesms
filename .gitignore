@@ -15,3 +15,11 @@ _review/
 *.log
 *.vsix
 backend_*.log
+
+# Neon local config and tooling (contains DB credentials).
+.env.local
+.neon
+neon.ts
+package.json
+package-lock.json
+node_modules/
