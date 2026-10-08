@@ -10,31 +10,58 @@ var builder = WebApplication.CreateBuilder(args);
 
 static string NormalizeConnectionString(string conn)
 {
-    if (!conn.StartsWith("postgresql://", StringComparison.OrdinalIgnoreCase) &&
-        !conn.StartsWith("postgres://", StringComparison.OrdinalIgnoreCase))
-        return conn;
-    var u = new Uri(conn);
-    var userInfo = u.UserInfo.Split(':', 2);
-    var sb = new StringBuilder();
-    sb.Append("Host=").Append(u.Host);
-    if (u.Port > 0) sb.Append(";Port=").Append(u.Port);
-    sb.Append(";Database=").Append(u.AbsolutePath.TrimStart('/'));
-    sb.Append(";Username=").Append(userInfo[0]);
-    if (userInfo.Length > 1) sb.Append(";Password=").Append(userInfo[1]);
-    foreach (var part in u.Query.TrimStart('?').Split('&'))
+    conn = conn.Trim();
+    try
     {
-        var kv = part.Split('=', 2);
-        if (kv.Length != 2) continue;
-        var key = Uri.UnescapeDataString(kv[0]);
-        var val = Uri.UnescapeDataString(kv[1]);
-        if (key.Equals("sslmode", StringComparison.OrdinalIgnoreCase))
-            sb.Append(";SSL Mode=").Append(val);
+        if (conn.StartsWith("postgresql://", StringComparison.OrdinalIgnoreCase) ||
+            conn.StartsWith("postgres://", StringComparison.OrdinalIgnoreCase))
+        {
+            // Render and other hosts may provide PostgreSQL URLs. Build the Npgsql
+            // connection string structurally so encoded credentials and punctuation
+            // in passwords cannot break parsing or escape into another setting.
+            var uri = new Uri(conn, UriKind.Absolute);
+            var userInfo = uri.UserInfo.Split(':', 2);
+            var builder = new Npgsql.NpgsqlConnectionStringBuilder
+            {
+                Host = uri.Host,
+                Port = uri.IsDefaultPort ? 5432 : uri.Port,
+                Database = Uri.UnescapeDataString(uri.AbsolutePath.TrimStart('/')),
+                Username = Uri.UnescapeDataString(userInfo[0])
+            };
+            if (userInfo.Length > 1)
+                builder.Password = Uri.UnescapeDataString(userInfo[1]);
+
+            foreach (var part in uri.Query.TrimStart('?').Split('&', StringSplitOptions.RemoveEmptyEntries))
+            {
+                var pair = part.Split('=', 2);
+                if (pair.Length == 2 && Uri.UnescapeDataString(pair[0]).Equals("sslmode", StringComparison.OrdinalIgnoreCase))
+                    builder.SslMode = Enum.Parse<Npgsql.SslMode>(Uri.UnescapeDataString(pair[1]), ignoreCase: true);
+            }
+            return builder.ConnectionString;
+        }
+
+        // Parse ordinary key/value strings here too, so malformed host settings are
+        // reported before EF starts issuing schema SQL.
+        return new Npgsql.NpgsqlConnectionStringBuilder(conn).ConnectionString;
     }
-    return sb.ToString();
+    catch (Exception ex) when (ex is ArgumentException or UriFormatException or FormatException)
+    {
+        throw new InvalidOperationException(
+            "The PostgreSQL connection setting is invalid. Set ConnectionStrings__Default to a valid Npgsql connection string, or set DATABASE_URL to a valid postgres:// or postgresql:// URL. Check for surrounding quotes or deployment placeholders; the value is intentionally omitted from this error.", ex);
+    }
 }
 
 // --- PostgreSQL + EF Core ---
-var conn = NormalizeConnectionString(builder.Configuration.GetConnectionString("Default")
+var configuredConnection = builder.Configuration.GetConnectionString("Default");
+var databaseUrl = builder.Configuration["DATABASE_URL"];
+// Render supplies DATABASE_URL automatically. Prefer it when the only configured
+// connection string is the repository's local-development default.
+var useDatabaseUrl = !string.IsNullOrWhiteSpace(databaseUrl) &&
+    (string.IsNullOrWhiteSpace(configuredConnection) ||
+     configuredConnection.Contains("localhost", StringComparison.OrdinalIgnoreCase) ||
+     configuredConnection.Contains("127.0.0.1", StringComparison.OrdinalIgnoreCase));
+var rawConnection = useDatabaseUrl ? databaseUrl : configuredConnection;
+var conn = NormalizeConnectionString(rawConnection
     ?? throw new InvalidOperationException("ConnectionStrings:Default must be configured."));
 builder.Services.AddDbContext<AppDbContext>(o => o.UseNpgsql(conn, npgsql =>
     npgsql.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
@@ -175,7 +202,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    if (app.Environment.IsDevelopment() && builder.Configuration.GetValue<bool>("Database:EnsureCreated"))
+    if (builder.Configuration.GetValue<bool>("Database:EnsureCreated"))
     {
         db.Database.EnsureCreated();
     }
