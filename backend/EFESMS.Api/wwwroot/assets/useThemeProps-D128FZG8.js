@@ -1,0 +1,1 @@
+import{nt as e,ot as t}from"./client-DzwJjI86.js";import{n}from"./Chip-SF8lGBxP.js";var r=e();function i(e){let{props:r,name:i,defaultTheme:a,themeId:o}=e,s=t(a);return o&&(s=s[o]||s),n({theme:s,name:i,props:r})}export{r as n,i as t};

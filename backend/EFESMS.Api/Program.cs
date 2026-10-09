@@ -188,6 +188,13 @@ var corsOrigins = (builder.Configuration["Cors:Origins"] ?? "")
     .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 if (corsOrigins.Length == 0)
     corsOrigins = ["http://localhost:5173", "http://127.0.0.1:5173", "http://192.168.1.226:5173"];
+// Keep the production Render frontend origin allowed even when deployment
+// configuration omits Cors__Origins; custom origins can still be added above.
+corsOrigins = corsOrigins
+    .Select(origin => origin.TrimEnd('/'))
+    .Append("https://efesms-web.onrender.com")
+    .Distinct(StringComparer.OrdinalIgnoreCase)
+    .ToArray();
 builder.Services.AddCors(o =>
 {
     o.AddPolicy("Frontend", p =>
@@ -197,6 +204,9 @@ builder.Services.AddCors(o =>
 });
 
 var app = builder.Build();
+
+app.UseStaticFiles();
+app.MapFallbackToFile("index.html");
 
 // --- Database provisioning and optional bootstrap ---
 using (var scope = app.Services.CreateScope())
