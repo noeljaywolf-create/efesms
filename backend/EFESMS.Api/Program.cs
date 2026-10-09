@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 static string NormalizeConnectionString(string conn)
 {
-    conn = conn.Trim();
+    conn = conn.Trim().Trim('"').Trim('\'').Trim();
     try
     {
         if (conn.StartsWith("postgresql://", StringComparison.OrdinalIgnoreCase) ||
