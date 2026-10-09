@@ -204,6 +204,25 @@ using (var scope = app.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     if (builder.Configuration.GetValue<bool>("Database:EnsureCreated"))
     {
+        // EnsureCreated is a no-op when the database already exists.
+        // Recreate the database so the full EF Core schema is always created.
+        var csb = new Npgsql.NpgsqlConnectionStringBuilder(conn);
+        var dbName = csb.Database;
+        csb.Database = "postgres";
+        using (var master = new Npgsql.NpgsqlConnection(csb.ConnectionString))
+        {
+            master.Open();
+            using (var drop = master.CreateCommand())
+            {
+                drop.CommandText = $"DROP DATABASE IF EXISTS \"{dbName}\" WITH (FORCE);";
+                drop.ExecuteNonQuery();
+            }
+            using (var create = master.CreateCommand())
+            {
+                create.CommandText = $"CREATE DATABASE \"{dbName}\";";
+                create.ExecuteNonQuery();
+            }
+        }
         db.Database.EnsureCreated();
     }
 
