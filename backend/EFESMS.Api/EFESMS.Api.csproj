@@ -19,7 +19,15 @@
     <PackageReference Include="UglyToad.PdfPig" Version="1.7.0-custom-5" />
   </ItemGroup>
 
+  <!-- The pre-built publish/ output lives inside the project folder (it is
+       what the runtime-only Dockerfile copies). Keep the compiler and the
+       publish step from treating it as source — otherwise the copied
+       Migrations/*.cs sources get compiled a second time (CS0579/CS0111).
+       Migrations ship inside EFESMS.Api.dll; their sources must not be
+       copied to publish/. -->
   <ItemGroup>
-    <Content Include="Migrations\**" CopyToPublishDirectory="PreserveNewest" />
+    <Compile Remove="publish\**" />
+    <Content Remove="publish\**" />
+    <None Remove="publish\**" />
   </ItemGroup>
 </Project>

@@ -212,8 +212,42 @@ app.MapFallbackToFile("index.html");
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    // Apply EF Core migrations — non-destructive: only creates tables that don't
-    // exist. Never drops the database, so all data persists across restarts.
+    // Apply EF Core migrations — non-destructive. Never drops the database,
+    // so all data persists across restarts.
+    //
+    // Baseline for pre-migration databases: databases created before
+    // migrations existed (via EnsureCreated) already contain every table but
+    // have no __EFMigrationsHistory rows. Re-running InitialCreate against
+    // them fails with "relation already exists" and crashes startup, so
+    // record InitialCreate as already applied instead of re-running it.
+    // Fresh databases skip this and are created by Migrate() below.
+    const string baselineMigrationId = "20261012060103_InitialCreate";
+    var historyTableExists = db.Database.SqlQueryRaw<int>(
+        "SELECT 1 FROM information_schema.tables WHERE table_schema = 'public' AND table_name = '__EFMigrationsHistory'")
+        .AsEnumerable().Any();
+    var appliedMigrations = historyTableExists
+        ? db.Database.GetAppliedMigrations().ToList()
+        : new List<string>();
+    if (appliedMigrations.Count == 0)
+    {
+        var usersTableExists = db.Database.SqlQueryRaw<int>(
+            "SELECT 1 FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'Users'")
+            .AsEnumerable().Any();
+        if (usersTableExists)
+        {
+            db.Database.ExecuteSqlRaw(
+                """
+                CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+                    "MigrationId" character varying(150) NOT NULL,
+                    "ProductVersion" character varying(32) NOT NULL,
+                    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+                );
+                """);
+            db.Database.ExecuteSqlRaw(
+                "INSERT INTO \"__EFMigrationsHistory\" (\"MigrationId\", \"ProductVersion\") VALUES ({0}, {1}) ON CONFLICT (\"MigrationId\") DO NOTHING",
+                baselineMigrationId, "8.0.4");
+        }
+    }
     db.Database.Migrate();
 
     OpsSchema.Ensure(db);
