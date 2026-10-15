@@ -212,41 +212,9 @@ app.MapFallbackToFile("index.html");
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    if (builder.Configuration.GetValue<bool>("Database:EnsureCreated"))
-    {
-        // Only recreate the database on first startup (when the Users table
-        // doesn't exist). On subsequent startups, keep existing data —
-        // EnsureCreated and OpsSchema.Ensure are idempotent no-ops.
-        bool usersTableExists;
-        using (var cmd = db.Database.GetDbConnection().CreateCommand())
-        {
-            cmd.CommandText = "SELECT to_regclass('public.\"Users\"') IS NOT NULL";
-            db.Database.OpenConnection();
-            usersTableExists = (bool)cmd.ExecuteScalar();
-            db.Database.CloseConnection();
-        }
-        if (!usersTableExists)
-        {
-            var csb = new Npgsql.NpgsqlConnectionStringBuilder(conn);
-            var dbName = csb.Database;
-            csb.Database = "postgres";
-            using (var master = new Npgsql.NpgsqlConnection(csb.ConnectionString))
-            {
-                master.Open();
-                using (var drop = master.CreateCommand())
-                {
-                    drop.CommandText = $"DROP DATABASE IF EXISTS \"{dbName}\" WITH (FORCE);";
-                    drop.ExecuteNonQuery();
-                }
-                using (var create = master.CreateCommand())
-                {
-                    create.CommandText = $"CREATE DATABASE \"{dbName}\";";
-                    create.ExecuteNonQuery();
-                }
-            }
-            db.Database.EnsureCreated();
-        }
-    }
+    // Apply EF Core migrations — non-destructive: only creates tables that don't
+    // exist. Never drops the database, so all data persists across restarts.
+    db.Database.Migrate();
 
     OpsSchema.Ensure(db);
 
