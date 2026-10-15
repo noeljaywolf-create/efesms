@@ -887,10 +887,10 @@ export default function CustomersPage() {
             clickable
             onClick={() => setFilters((prev) => ({ ...prev, quick: f.key, status: '', type: prev.type }))}
             sx={{
-              bgcolor: filters.quick === f.key ? '#12121a' : '#ffffff',
+              bgcolor: filters.quick === f.key ? '#1B2834' : '#ffffff',
               color: filters.quick === f.key ? '#ffffff' : '#374151',
               border: '1px solid',
-              borderColor: filters.quick === f.key ? '#12121a' : '#e5e7eb',
+              borderColor: filters.quick === f.key ? '#1B2834' : '#e5e7eb',
               fontWeight: 700,
               '&:hover': { bgcolor: filters.quick === f.key ? '#1f2937' : '#f8fafc' },
               cursor: 'pointer',
@@ -1108,7 +1108,7 @@ export default function CustomersPage() {
 
       {/* add / edit dialog */}
       <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)} maxWidth="md" fullWidth fullScreen={isMobile}>
-        <DialogTitle sx={{ fontWeight: 800, display: 'flex', alignItems: 'center', gap: 1, bgcolor: isMobile ? '#12121a' : 'transparent', color: isMobile ? '#f2f2f7' : 'inherit' }}>
+        <DialogTitle sx={{ fontWeight: 800, display: 'flex', alignItems: 'center', gap: 1, bgcolor: isMobile ? '#1B2834' : 'transparent', color: isMobile ? '#f2f2f7' : 'inherit' }}>
           {editingId ? 'Edit Customer' : 'Add Customer'}
           {isMobile && <IconButton size="small" onClick={() => setDialogOpen(false)} sx={{ ml: 'auto', color: '#f2f2f7' }}><CloseIcon /></IconButton>}
         </DialogTitle>

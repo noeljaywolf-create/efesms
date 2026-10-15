@@ -350,7 +350,7 @@ export default function EquipmentPage() {
           ]
           return (
             <>
-              <DialogTitle sx={{ fontWeight: 900, bgcolor: '#12121a', color: '#f2f2f7', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <DialogTitle sx={{ fontWeight: 900, bgcolor: '#1B2834', color: '#f2f2f7', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 {sel.equipmentNumber}
                 <Box className="ef-no-print" sx={{ display: 'flex', gap: 0.5 }}>
                   {canWrite && <Button size="small" variant="outlined" onClick={() => openEdit(sel)} sx={{ borderRadius: 2, color: '#f2f2f7', borderColor: 'rgba(255,255,255,0.25)' }}>Edit</Button>}

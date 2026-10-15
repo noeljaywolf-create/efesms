@@ -6,8 +6,6 @@ import VerifiedIcon from '@mui/icons-material/Verified'
 import BuildIcon from '@mui/icons-material/Build'
 import WarningAmberIcon from '@mui/icons-material/WarningAmber'
 import DownloadIcon from '@mui/icons-material/Download'
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import AddIcon from '@mui/icons-material/Add'
 import SearchIcon from '@mui/icons-material/Search'
@@ -34,11 +32,11 @@ type Customer = {
 }
 
 const TYPE_COLORS: Record<string, string> = {
-  Commercial: '#FF3D00',
-  Industrial: '#FF6E40',
-  Institutional: '#FF8A65',
-  Residential: '#E65100',
-  Government: '#FF3D00',
+  Commercial: '#69AEEB',
+  Industrial: '#B58AE8',
+  Institutional: '#38A7A0',
+  Residential: '#E7A844',
+  Government: '#FF7043',
 }
 const STATUS_COLORS: Record<string, string> = {
   Prospect: '#ff8f00',
@@ -48,13 +46,12 @@ const STATUS_COLORS: Record<string, string> = {
 }
 
 const GLASS = {
-  bgcolor: 'rgba(18,18,26,0.72)',
-  border: '1px solid rgba(255,255,255,0.08)',
-  backdropFilter: 'blur(18px)',
-  boxShadow: '0 18px 50px rgba(0,0,0,0.35)',
+  bgcolor: '#18232E',
+  border: '1px solid rgba(174,190,204,0.14)',
+  boxShadow: '0 5px 18px rgba(3,10,18,0.16)',
 }
 
-function KpiCard({ label, icon, color, value, delta, up }: { label: string; icon: React.ReactNode; color: string; value: number; delta: string; up: boolean }) {
+function KpiCard({ label, icon, color, value, delta }: { label: string; icon: React.ReactNode; color: string; value: number; delta: string }) {
   // Show the latest API value immediately; a delayed observer animation used
   // to leave visible KPIs at zero on short pages and narrow screens.
   const display = String(value)
@@ -66,57 +63,36 @@ function KpiCard({ label, icon, color, value, delta, up }: { label: string; icon
           height: '100%',
           ...GLASS,
           borderRadius: 3,
-          p: { xs: 1.5, sm: 2.5 },
+          p: { xs: 1.75, sm: 2.25 },
           position: 'relative',
           overflow: 'hidden',
-          transition: 'transform .25s ease, border-color .25s ease, box-shadow .25s ease',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            inset: 0,
-            background: `radial-gradient(140% 90% at 100% 0%, ${color}22, transparent 55%)`,
-            pointerEvents: 'none',
-          },
+          transition: 'transform .18s ease, border-color .18s ease, box-shadow .18s ease',
           '&:hover': {
-            transform: 'translateY(-4px)',
+            transform: 'translateY(-2px)',
             borderColor: `${color}66`,
-            boxShadow: `0 22px 55px rgba(0,0,0,0.45), 0 0 28px ${color}22`,
+            boxShadow: '0 8px 24px rgba(3,10,18,0.24)',
           },
         }}
       >
-        <Box sx={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1.5 }}>
+        <Box sx={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1.75 }}>
           <Box
             sx={{
-              width: 46, height: 46, borderRadius: 2.5,
+              width: 42, height: 42, borderRadius: 2.25,
               display: 'grid', placeItems: 'center',
-              background: `linear-gradient(135deg, ${color}33, ${color}12)`,
-              border: `1px solid ${color}44`,
-              boxShadow: `0 0 24px ${color}2a`,
+              background: `${color}20`,
+              border: `1px solid ${color}42`,
               color,
-              '& svg': { fontSize: 24 },
+              '& svg': { fontSize: 22 },
             }}
           >
             {icon}
           </Box>
-          <Chip
-            size="small"
-            icon={up ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-            label={label === 'Services due' ? 'soon' : up ? 'good' : 'attention'}
-            sx={{
-              height: 24,
-              fontWeight: 800,
-              fontSize: 11,
-              bgcolor: up ? '#2e7d3218' : '#d32f2f18',
-              color: up ? '#4ade80' : '#f87171',
-              '& .MuiChip-icon': { color: 'inherit', fontSize: 16 },
-            }}
-          />
         </Box>
-        <Typography variant="h3" sx={{ position: 'relative', fontWeight: 900, lineHeight: 1, color: '#f2f2f7', letterSpacing: '-0.03em' }}>
+        <Typography variant="h3" sx={{ position: 'relative', fontWeight: 750, lineHeight: 1, color: '#EFF4F8', letterSpacing: '-0.035em' }}>
           {display}
         </Typography>
-        <Typography variant="body2" sx={{ position: 'relative', color: '#c9cdd8', fontWeight: 700, mt: 1 }}>{label}</Typography>
-        <Typography variant="caption" sx={{ position: 'relative', color: '#7d8496', mt: 0.25, display: 'block' }}>{delta}</Typography>
+        <Typography variant="body2" sx={{ position: 'relative', color: '#D6DEE6', fontWeight: 650, mt: 1 }}>{label}</Typography>
+        <Typography variant="caption" sx={{ position: 'relative', color: '#91A0AE', mt: 0.5, display: 'block' }}>{delta}</Typography>
       </Paper>
     </Grid>
   )
@@ -142,20 +118,13 @@ function AreaChart({ color, data, labels }: { color: string; data: number[]; lab
             <stop offset="0%" stopColor={color} stopOpacity="0.45" />
             <stop offset="100%" stopColor={color} stopOpacity="0.02" />
           </linearGradient>
-          <filter id="ef-glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="3" result="b" />
-            <feMerge>
-              <feMergeNode in="b" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
         </defs>
         {[0.25, 0.5, 0.75].map((t) => (
-          <line key={t} x1="0" x2={w} y1={h * t} y2={h * t} stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+          <line key={t} x1="0" x2={w} y1={h * t} y2={h * t} stroke="rgba(174,190,204,0.14)" strokeWidth="1" />
         ))}
         <path d={area} fill="url(#ef-area)" />
-        <path d={line} fill="none" stroke={color} strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round" filter="url(#ef-glow)" />
-        <circle cx={last[0]} cy={last[1]} r="5" fill={color} stroke="#12121a" strokeWidth="2.5" />
+        <path className="ef-chart-line" d={line} fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx={last[0]} cy={last[1]} r="4.5" fill={color} stroke="#18232E" strokeWidth="2.5" />
       </svg>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', px: 0.5, mt: 0.5 }}>
         {labels.map((l) => (
@@ -189,7 +158,7 @@ function Donut({ segments }: { segments: { label: string; color: string; value: 
           position: 'relative',
         }}
       >
-        <Box sx={{ width: 100, height: 100, borderRadius: '50%', bgcolor: '#12121a', border: '4px solid rgba(255,255,255,0.06)', display: 'grid', placeItems: 'center', textAlign: 'center' }}>
+        <Box sx={{ width: 100, height: 100, borderRadius: '50%', bgcolor: '#18232E', border: '4px solid rgba(174,190,204,0.12)', display: 'grid', placeItems: 'center', textAlign: 'center' }}>
           <Box>
             <Typography variant="h4" sx={{ fontWeight: 900, color: '#f2f2f7', lineHeight: 1 }}>{total}</Typography>
             <Typography variant="caption" sx={{ color: '#7d8496', fontWeight: 700 }}>customers</Typography>
@@ -199,7 +168,7 @@ function Donut({ segments }: { segments: { label: string; color: string; value: 
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, width: '100%' }}>
         {segments.map((s) => (
           <Box key={s.label} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <Box sx={{ width: 10, height: 10, borderRadius: '50%', bgcolor: s.color, flexShrink: 0, boxShadow: `0 0 10px ${s.color}88` }} />
+            <Box sx={{ width: 9, height: 9, borderRadius: '50%', bgcolor: s.color, flexShrink: 0 }} />
             <Typography variant="body2" sx={{ color: '#9aa0b0', fontWeight: 600, flexGrow: 1 }}>{s.label}</Typography>
             <Typography variant="body2" sx={{ color: '#f2f2f7', fontWeight: 800 }}>{s.value}</Typography>
             <Typography variant="caption" sx={{ color: '#6b7280', width: 44, textAlign: 'right' }}>{Math.round((s.value / total) * 100)}%</Typography>
@@ -309,28 +278,25 @@ export default function DashboardPage() {
 
   return (
     <Box sx={{ position: 'relative', minHeight: '100%' }}>
-      <Box className="ef-grid-bg" />
-
-      <Box sx={{ position: 'relative' }}>
+      <Box>
         {/* header row */}
         <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 2, mb: 3 }}>
           <Box sx={{ flexGrow: 1, minWidth: { xs: '100%', sm: 0 } }}>
             <Typography
-              className="grad-text"
               variant="h4"
-              sx={{ fontWeight: 900, letterSpacing: '-0.03em', fontSize: { xs: 26, sm: 34 } }}
+              sx={{ fontWeight: 750, letterSpacing: '-0.035em', fontSize: { xs: 27, sm: 34 }, color: '#F4F7FA' }}
             >
               Command Centre
             </Typography>
-            <Typography variant="body2" sx={{ color: '#7d8496', fontWeight: 500, mt: 0.25 }}>
+            <Typography variant="body2" sx={{ color: '#91A0AE', fontWeight: 500, mt: 0.5 }}>
               Extreme Fire Design Inc · Operational Overview · {today}
             </Typography>
           </Box>
           <Box
             sx={{
               display: 'flex', alignItems: 'center', gap: 1.25,
-              bgcolor: 'rgba(18,18,26,0.72)', border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: 999, px: 2, py: 1, backdropFilter: 'blur(12px)',
+              bgcolor: '#18232E', border: '1px solid rgba(174,190,204,0.14)',
+              borderRadius: 2.5, px: 1.75, py: 0.9,
             }}
           >
             <Box
@@ -338,7 +304,7 @@ export default function DashboardPage() {
               sx={{
                 width: 8, height: 8, borderRadius: '50%',
                 bgcolor: connection === 'online' ? '#00e676' : connection === 'offline' ? '#ff5252' : '#ffb74d',
-                boxShadow: `0 0 10px ${connection === 'online' ? '#00e676' : connection === 'offline' ? '#ff5252' : '#ffb74d'}`,
+                boxShadow: 'none',
               }}
             />
             <Typography sx={{ fontSize: 11, fontWeight: 800, color: connection === 'online' ? '#4ade80' : connection === 'offline' ? '#ff6b6b' : '#ffcc80', letterSpacing: '0.08em' }}>
@@ -351,8 +317,8 @@ export default function DashboardPage() {
             onClick={exportCustomers}
             disabled={exporting}
             sx={{
-              borderRadius: 999, color: '#f2f2f7', borderColor: 'rgba(255,255,255,0.16)',
-              px: 2.5, '&:hover': { borderColor: '#FF3D00', bgcolor: '#FF3D0014', boxShadow: '0 0 20px #FF3D0022' },
+              borderRadius: 2.5, color: '#D6DEE6', borderColor: 'rgba(174,190,204,0.24)',
+              px: 2, '&:hover': { borderColor: '#E84B1C', bgcolor: 'rgba(232,75,28,0.10)' },
             }}
           >
             {exporting ? 'Exporting…' : 'Export'}
@@ -361,10 +327,10 @@ export default function DashboardPage() {
 
         {/* KPI strip */}
         <Grid container spacing={{ xs: 1.5, md: 2.5 }} sx={{ mb: 3 }}>
-          <KpiCard label="Customers" icon={<PeopleIcon />} color="#FF6E40" value={totalCustomers} delta={totalCustomers === 0 ? 'Loading live register…' : `${activeCustomers} active`} up={activeCustomers > 0} />
-          <KpiCard label="Active customers" icon={<VerifiedIcon />} color="#FF6E40" value={activeCustomers} delta={`${totalCustomers - activeCustomers} other statuses`} up={activeCustomers > 0} />
-          <KpiCard label="Open jobs" icon={<BuildIcon />} color="#FF6E40" value={openJobs} delta={`${highPriority} high priority`} up={openJobs === 0} />
-          <KpiCard label="Units at risk" icon={<WarningAmberIcon />} color="#FF6E40" value={atRisk} delta={`${ai?.anomalies.length ?? 0} anomalies flagged`} up={atRisk === 0} />
+          <KpiCard label="Customers" icon={<PeopleIcon />} color="#69AEEB" value={totalCustomers} delta={totalCustomers === 0 ? 'No customers recorded' : `${activeCustomers} active`} />
+          <KpiCard label="Active customers" icon={<VerifiedIcon />} color="#48B987" value={activeCustomers} delta={`${totalCustomers - activeCustomers} other statuses`} />
+          <KpiCard label="Open jobs" icon={<BuildIcon />} color="#E7A844" value={openJobs} delta={`${highPriority} high priority`} />
+          <KpiCard label="Units at risk" icon={<WarningAmberIcon />} color="#E56A6F" value={atRisk} delta={`${ai?.anomalies.length ?? 0} anomalies flagged`} />
         </Grid>
 
         {/* charts row */}
@@ -372,8 +338,8 @@ export default function DashboardPage() {
           <Grid size={{ xs: 12, md: 8 }}>
             <Paper elevation={0} sx={{ height: '100%', ...GLASS, borderRadius: 3, p: { xs: 2, sm: 2.5 } }}>
               <PanelHeader
-                title="Job cards created — last 10 weeks"
-                action={<Chip size="small" label="Live database" sx={{ bgcolor: '#2e7d3218', color: '#4ade80', fontWeight: 700, borderRadius: 2 }} />}
+              title="Job cards created — last 10 weeks"
+                action={<Chip size="small" label="Live data" sx={{ bgcolor: 'rgba(72,185,135,0.12)', color: '#7DD5A9', fontWeight: 650, borderRadius: 2 }} />}
               />
               <AreaChart color="#FF3D00" data={demand} labels={demandLabels} />
             </Paper>
@@ -393,9 +359,8 @@ export default function DashboardPage() {
             sx={{
               mb: 3,
               borderRadius: 3,
-              border: '1px solid rgba(255,61,0,0.28)',
-              background: 'linear-gradient(120deg, rgba(255,61,0,0.14), rgba(255,110,64,0.05) 55%, rgba(18,18,26,0.9))',
-              backdropFilter: 'blur(18px)',
+              border: '1px solid rgba(232,75,28,0.25)',
+              background: '#1B2834',
               p: { xs: 2, sm: 2.5 },
             }}
           >
@@ -403,14 +368,14 @@ export default function DashboardPage() {
               <Box
                 sx={{
                   width: 44, height: 44, borderRadius: 2.5, display: 'grid', placeItems: 'center',
-                  background: 'linear-gradient(135deg, #FF3D0033, #FF3D0012)',
-                  border: '1px solid #FF3D0044', boxShadow: '0 0 24px #FF3D0033', color: '#FF6E40',
+                  background: 'rgba(232,75,28,0.14)',
+                  border: '1px solid rgba(232,75,28,0.25)', color: '#FF7043',
                 }}
               >
                 <AutoAwesomeIcon />
               </Box>
               <Box sx={{ flexGrow: 1, minWidth: 200 }}>
-                <Typography sx={{ fontWeight: 800, color: '#f2f2f7', fontSize: { xs: 14, sm: 15 } }}>
+                <Typography sx={{ fontWeight: 700, color: '#EFF4F8', fontSize: { xs: 14, sm: 15 } }}>
                   FireOps AI Engine — {ai.engineVersion} · {Math.round(ai.overallConfidence * 100)}% confidence
                 </Typography>
                 <Typography variant="caption" sx={{ color: '#9aa0b0' }}>
@@ -482,10 +447,10 @@ export default function DashboardPage() {
                         px: 1,
                         mx: -1,
                         borderRadius: 2,
-                        borderBottom: '1px solid rgba(255,255,255,0.05)',
+                        borderBottom: '1px solid rgba(174,190,204,0.10)',
                         cursor: 'pointer',
-                        transition: 'background .15s ease, transform .15s ease',
-                        '&:hover': { bgcolor: 'rgba(255,61,0,0.08)', transform: 'translateX(4px)' },
+                        transition: 'background-color .15s ease',
+                        '&:hover': { bgcolor: 'rgba(174,190,204,0.06)' },
                         '&:last-of-type': { borderBottom: 'none' },
                       }}
                     >
@@ -498,7 +463,7 @@ export default function DashboardPage() {
                         {c.name.charAt(0).toUpperCase()}
                       </Avatar>
                       <Box sx={{ flexGrow: 1, minWidth: 0 }}>
-                        <Typography sx={{ fontWeight: 700, color: '#f2f2f7', fontSize: 14 }} noWrap>{c.name}</Typography>
+                        <Typography sx={{ fontWeight: 650, color: '#EFF4F8', fontSize: 14 }} noWrap>{c.name}</Typography>
                         <Typography variant="caption" sx={{ color: '#6b7280' }} noWrap>
                           {c.customerType}{pc ? ` · ${pc.name}` : ''}
                         </Typography>
@@ -531,8 +496,8 @@ export default function DashboardPage() {
               <Box
                 sx={{
                   mt: 2.5,
-                  background: 'linear-gradient(135deg, rgba(255,61,0,0.12), rgba(255,61,0,0.04))',
-                  border: '1px solid rgba(255,61,0,0.28)',
+                  background: 'rgba(232,75,28,0.08)',
+                  border: '1px solid rgba(232,75,28,0.24)',
                   borderRadius: 2.5,
                   p: 2,
                 }}
@@ -559,9 +524,9 @@ export default function DashboardPage() {
           size="small"
           sx={{
             mt: 3,
-            bgcolor: 'rgba(255,255,255,0.04)',
-            color: '#7d8496',
-            border: '1px solid rgba(255,255,255,0.08)',
+            bgcolor: 'rgba(174,190,204,0.06)',
+            color: '#91A0AE',
+            border: '1px solid rgba(174,190,204,0.12)',
             height: 'auto', py: 1,
             borderRadius: 2,
             '& .MuiChip-label': { whiteSpace: 'normal' },
@@ -580,7 +545,12 @@ function ActionTile({ icon, color, label, onClick, full }: { icon: React.ReactNo
       role="button"
       tabIndex={0}
       onClick={onClick}
-      onKeyDown={(e) => { if (e.key === 'Enter') onClick() }}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          onClick()
+        }
+      }}
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -589,22 +559,21 @@ function ActionTile({ icon, color, label, onClick, full }: { icon: React.ReactNo
         minHeight: 104,
         gridColumn: full ? '1 / -1' : 'auto',
         cursor: 'pointer',
-        border: '1px solid rgba(255,255,255,0.08)',
+        border: '1px solid rgba(174,190,204,0.14)',
         borderRadius: 2.5,
         p: 1.75,
-        background: `linear-gradient(160deg, ${color}14, rgba(255,255,255,0.02))`,
-        transition: 'transform .18s ease, border-color .2s ease, box-shadow .2s ease',
-        '&:hover': { transform: 'translateY(-3px)', borderColor: `${color}77`, boxShadow: `0 14px 32px ${color}26` },
-        '&:active': { transform: 'translateY(0)' },
+        background: '#1B2834',
+        transition: 'background-color .16s ease, border-color .16s ease',
+        '&:hover': { background: '#202F3C', borderColor: `${color}66` },
+        '&:focus-visible': { outline: `2px solid ${color}`, outlineOffset: 2 },
       }}
     >
       <Box
         sx={{
           width: 40, height: 40, borderRadius: 2, display: 'grid', placeItems: 'center',
-          background: `linear-gradient(135deg, ${color}38, ${color}14)`,
-          border: `1px solid ${color}44`,
+          background: `${color}1C`,
+          border: `1px solid ${color}40`,
           color,
-          boxShadow: `0 0 18px ${color}22`,
           '& svg': { fontSize: 21 },
         }}
       >

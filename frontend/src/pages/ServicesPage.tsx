@@ -1,4 +1,4 @@
-﻿import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import {
   Alert,
   Box,
@@ -326,7 +326,7 @@ export default function ServicesPage() {
           fullScreen={isMobile}
           sx={{
             '& .MuiDialog-paper': {
-              bgcolor: '#12121a',
+              bgcolor: '#1B2834',
               color: '#f2f2f7',
               border: '1px solid rgba(255,255,255,0.08)',
               boxShadow: '0 18px 48px rgba(0,0,0,0.45)',

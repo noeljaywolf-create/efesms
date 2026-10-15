@@ -49,7 +49,7 @@ import { NAV } from '../lib/navigation'
 import { useApp } from '../App'
 import { api } from '../api/client'
 
-// sidebar icons — gradient-tinted chips for a modern feel
+// Each section keeps its own hue so people can identify modules at a glance.
 const ICONS: Record<string, ReactNode> = {
   '/dashboard': <DashboardIcon />,
   '/customers': <PeopleIcon />,
@@ -96,7 +96,7 @@ const ICON_TINTS: Record<string, string> = {
   '/settings': '#B0BEC5',
 }
 
-const DRAWER_WIDTH = 250
+const DRAWER_WIDTH = 256
 
 export default function AppLayout() {
   const theme = useTheme()
@@ -171,23 +171,23 @@ export default function AppLayout() {
   }
 
   const drawer = (
-    <Box sx={{ height: '100%', bgcolor: '#12121a', borderRight: '1px solid rgba(255,255,255,0.08)' }}>
-      <Toolbar sx={{ px: 2, gap: 1.5 }}>
+    <Box sx={{ height: '100%', bgcolor: '#121D27', borderRight: '1px solid rgba(174,190,204,0.13)' }}>
+      <Toolbar sx={{ px: 2.25, gap: 1.5, minHeight: '72px !important' }}>
         <Box
           sx={{
-            width: 36, height: 36, borderRadius: 2.5,
-            bgcolor: 'rgba(255,61,0,0.15)',
-            border: '1px solid rgba(255,61,0,0.35)',
+            width: 38, height: 38, borderRadius: 2.5,
+            bgcolor: 'rgba(232,75,28,0.14)',
+            border: '1px solid rgba(232,75,28,0.28)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}
         >
-          <LocalFireDepartmentIcon sx={{ color: '#FF3D00', fontSize: 22 }} />
+          <LocalFireDepartmentIcon sx={{ color: '#FF7043', fontSize: 22 }} />
         </Box>
         <Box sx={{ minWidth: 0 }}>
-          <Typography sx={{ fontWeight: 800, color: '#f2f2f7', fontSize: 14, lineHeight: 1.15, letterSpacing: '-0.01em' }}>
+          <Typography sx={{ fontWeight: 750, color: '#EFF4F8', fontSize: 14, lineHeight: 1.15, letterSpacing: '-0.01em' }}>
             Extreme Fire
           </Typography>
-          <Typography sx={{ fontWeight: 800, color: '#FF3D00', fontSize: 14, lineHeight: 1.15, letterSpacing: '-0.01em' }}>
+          <Typography sx={{ fontWeight: 750, color: '#FF7043', fontSize: 14, lineHeight: 1.15, letterSpacing: '-0.01em' }}>
             Services
           </Typography>
         </Box>
@@ -198,11 +198,11 @@ export default function AppLayout() {
           <Box key={group.label}>
             <Typography
               variant="caption"
-              sx={{ px: 2, pt: 1.5, pb: 0.5, display: 'block', fontWeight: 700, color: 'rgba(255,255,255,0.35)', letterSpacing: 0.08 }}
+              sx={{ px: 2, pt: 2, pb: 0.75, display: 'block', fontWeight: 700, color: '#8293A2', letterSpacing: '0.09em', fontSize: 10.5 }}
             >
               {group.label.toUpperCase()}
             </Typography>
-            {group.items.map((item, idx) => (
+            {group.items.map((item) => (
               <ListItemButton
                 key={item.path}
                 selected={location.pathname === item.path || (item.path !== '/dashboard' && location.pathname.startsWith(item.path + '/'))}
@@ -212,29 +212,25 @@ export default function AppLayout() {
                 }}
                 sx={{
                   borderRadius: 1.5,
-                  mb: 0.25,
+                  mb: 0.4,
                   position: 'relative',
                   overflow: 'hidden',
-                  transition: 'transform .2s ease, box-shadow .25s ease',
-                  animation: 'ef-nav-in .5s ease both',
-                  animationDelay: `${idx * 60}ms`,
-                  color: '#ffffff',
+                  transition: 'background-color .16s ease, color .16s ease',
+                  color: '#B5C1CC',
+                  minHeight: 46,
                   bgcolor: 'transparent',
                   '&:hover': {
-                    transform: 'translateX(5px)',
-                    bgcolor: 'rgba(255,255,255,0.05)',
-                    boxShadow: '0 4px 18px rgba(0,0,0,0.35)',
+                    bgcolor: 'rgba(174,190,204,0.08)',
+                    color: '#F4F7FA',
                   },
-                  '&:hover .ef-nav-icon': { transform: 'translateX(2px)' },
-                  '&:hover .ef-icon-chip': { boxShadow: `0 0 16px ${ICON_TINTS[item.path] ?? '#FF3D00'}44`, transform: 'scale(1.06)' },
                   '&.Mui-selected': {
-                    color: '#ffffff',
-                    bgcolor: 'rgba(255,61,0,0.18)',
-                    boxShadow: 'inset 3px 0 0 #ff3d00, 0 4px 20px rgba(255,61,0,0.15)',
+                    color: '#FFF4EF',
+                    bgcolor: 'rgba(232,75,28,0.16)',
+                    boxShadow: 'inset 3px 0 0 #E84B1C',
                   },
                   '&.Mui-selected .ef-icon-chip': {
-                    boxShadow: `0 0 18px ${ICON_TINTS[item.path] ?? '#FF3D00'}55`,
-                    borderColor: `${ICON_TINTS[item.path] ?? '#FF3D00'}77`,
+                    background: `${ICON_TINTS[item.path] ?? '#E84B1C'}20`,
+                    borderColor: `${ICON_TINTS[item.path] ?? '#E84B1C'}66`,
                   },
                   '& .MuiListItemText-primary': {
                     color: 'inherit',
@@ -245,16 +241,15 @@ export default function AppLayout() {
                 <ListItemIcon
                   className="ef-nav-icon"
                   sx={{
-                    minWidth: 40,
-                    transition: 'transform .25s ease',
+                    minWidth: 42,
                     color: 'inherit',
                     '& .ef-icon-chip': {
                       width: 32, height: 32, borderRadius: 1.75,
                       display: 'grid', placeItems: 'center',
-                      background: `linear-gradient(135deg, ${ICON_TINTS[item.path] ?? '#FF3D00'}30, ${ICON_TINTS[item.path] ?? '#FF3D00'}10)`,
-                      border: `1px solid ${ICON_TINTS[item.path] ?? '#FF3D00'}38`,
+                      background: `${ICON_TINTS[item.path] ?? '#E84B1C'}18`,
+                      border: `1px solid ${ICON_TINTS[item.path] ?? '#E84B1C'}36`,
                       color: ICON_TINTS[item.path] ?? '#FF3D00',
-                      transition: 'box-shadow .25s ease, transform .25s ease',
+                      transition: 'background-color .16s ease, border-color .16s ease',
                       '& svg': { fontSize: 18 },
                     },
                   }}
@@ -278,19 +273,19 @@ export default function AppLayout() {
       <AppBar
         position="fixed"
         elevation={0}
-        sx={{ zIndex: theme.zIndex.drawer + 1, bgcolor: 'rgba(10,10,15,0.85)', backdropFilter: 'blur(14px)', color: '#f2f2f7', borderBottom: '1px solid rgba(255,255,255,0.08)' }}
+        sx={{ zIndex: theme.zIndex.drawer + 1, bgcolor: 'rgba(16,24,32,0.94)', backdropFilter: 'blur(12px)', color: '#EFF4F8', borderBottom: '1px solid rgba(174,190,204,0.14)' }}
       >
-        <Toolbar sx={{ minHeight: { xs: 56, sm: 64 } }}>
+        <Toolbar sx={{ minHeight: { xs: 60, sm: 68 } }}>
           <IconButton edge="start" onClick={() => setMobileOpen(true)} sx={{ mr: 1.5, display: { md: 'none' }, color: '#f2f2f7', minWidth: 44, minHeight: 44 }}>
             <MenuIcon />
           </IconButton>
           <Typography
-            variant="h6"
+            variant="subtitle1"
             sx={{
               flexGrow: 1,
-              fontWeight: 800,
+              fontWeight: 700,
               fontSize: { xs: 14, sm: 17 },
-              letterSpacing: '-0.01em',
+              letterSpacing: '-0.015em',
               minWidth: 0,
               overflow: 'hidden',
               textOverflow: 'ellipsis',
@@ -304,7 +299,7 @@ export default function AppLayout() {
               aria-label={bellEnabled === false ? 'Enable notifications' : 'Mute notifications'}
               disabled={bellEnabled === null || bellSaving}
               onClick={() => void toggleNotifications()}
-              sx={{ color: bellEnabled === false ? '#9aa0b0' : notifications.length ? '#FF6E40' : '#f2f2f7', minWidth: 44, minHeight: 44 }}
+              sx={{ color: bellEnabled === false ? '#91A0AE' : notifications.length ? '#FF7043' : '#CFD8E0', minWidth: 44, minHeight: 44 }}
             >
               <Badge badgeContent={notifications.length} color="primary">
                 {bellEnabled === false ? <NotificationsOffIcon /> : <NotificationsIcon />}
@@ -312,7 +307,7 @@ export default function AppLayout() {
             </IconButton>
           </Tooltip>
           <Tooltip title="Account">
-            <IconButton onClick={(e) => setAccountEl(e.currentTarget)} sx={{ color: '#9aa0b0', minWidth: 44, minHeight: 44 }}>
+            <IconButton onClick={(e) => setAccountEl(e.currentTarget)} sx={{ color: '#A7B3BF', minWidth: 44, minHeight: 44 }}>
               <BadgeOutlinedIcon />
             </IconButton>
           </Tooltip>
@@ -320,11 +315,11 @@ export default function AppLayout() {
             anchorEl={accountEl}
             open={!!accountEl}
             onClose={() => setAccountEl(null)}
-            slotProps={{ paper: { sx: { mt: 1, minWidth: 200, borderRadius: 2, border: '1px solid rgba(255,255,255,0.08)', bgcolor: '#16161f' } } }}
+            slotProps={{ paper: { sx: { mt: 1, minWidth: 200, borderRadius: 2, border: '1px solid rgba(174,190,204,0.16)', bgcolor: '#18232E' } } }}
           >
             <MenuItem disabled sx={{ minWidth: 160, fontWeight: 700 }}>Role: {role}</MenuItem>
-            <MenuItem onClick={logout} sx={{ color: '#FF6E40', fontWeight: 700, '&:hover': { bgcolor: '#FF3D0014' } }}>
-              <ListItemIcon><LogoutIcon fontSize="small" sx={{ color: '#FF6E40' }} /></ListItemIcon>
+            <MenuItem onClick={logout} sx={{ color: '#FF7043', fontWeight: 700, '&:hover': { bgcolor: '#E84B1C18' } }}>
+              <ListItemIcon><LogoutIcon fontSize="small" sx={{ color: '#FF7043' }} /></ListItemIcon>
               Logout
             </MenuItem>
           </Menu>
@@ -350,16 +345,19 @@ export default function AppLayout() {
         </Drawer>
       </Box>
 
-      <Box component="main" sx={{ flexGrow: 1, p: { xs: 1.5, sm: 3 }, mt: { xs: 7, sm: 8 }, width: { xs: '100%', md: `calc(100% - ${DRAWER_WIDTH}px)` } }}>
-        <Outlet />
+      <Box component="main" sx={{ flexGrow: 1, minWidth: 0, p: { xs: 1.5, sm: 2.5, lg: 3.5 }, mt: { xs: 7.5, sm: 8.5 }, width: { xs: '100%', md: `calc(100% - ${DRAWER_WIDTH}px)` }, maxWidth: { md: `calc(100% - ${DRAWER_WIDTH}px)` } }}>
+        {/* A short route-keyed entrance helps users track navigation without delaying work. */}
+        <Box key={`${location.pathname}${location.search}`} className="ef-page-enter">
+          <Outlet />
+        </Box>
         {notifications.map((n) => (
-          <Box key={n.id} sx={{ position: 'fixed', top: { xs: 68, sm: 80 }, right: { xs: 12, sm: 24 }, left: { xs: 12, sm: 'auto' }, zIndex: 1500, animation: 'slideIn .3s ease' }}>
+          <Box key={n.id} className="ef-notification-enter" sx={{ position: 'fixed', top: { xs: 68, sm: 80 }, right: { xs: 12, sm: 24 }, left: { xs: 12, sm: 'auto' }, zIndex: 1500 }}>
             <Box
               role="alert"
               sx={{
-                px: 2, py: 1.5, borderRadius: 2, bgcolor: 'rgba(22,22,31,0.95)', border: '1px solid', minWidth: { xs: 'auto', sm: 280 }, maxWidth: { xs: '100%', sm: 360 },
+                px: 2, py: 1.5, borderRadius: 2.5, bgcolor: 'rgba(24,35,46,0.98)', border: '1px solid', minWidth: { xs: 'auto', sm: 280 }, maxWidth: { xs: '100%', sm: 360 },
                 borderColor: n.type === 'error' ? '#fc0000' : n.type === 'warning' ? '#ff8a00' : n.type === 'success' ? '#0b7a31' : '#2196f3',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.45)', display: 'flex', alignItems: 'center', gap: 1.5, animation: 'slideIn .3s ease',
+                boxShadow: '0 12px 32px rgba(3,10,18,0.34)', display: 'flex', alignItems: 'center', gap: 1.5,
                 backdropFilter: 'blur(14px)',
               }}
             >

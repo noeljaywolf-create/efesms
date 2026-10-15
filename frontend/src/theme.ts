@@ -1,82 +1,128 @@
 import type { ThemeOptions } from '@mui/material/styles'
 
-// EFESMS — charcoal and fire-orange brand system shared after sign-in.
+// EFESMS — calm operational surfaces with the existing fire-orange brand accent.
 export const brandTheme: ThemeOptions = {
   palette: {
     mode: 'dark',
     primary: {
-      main: '#FF3D00',
-      light: '#FF6E40',
-      dark: '#DD2C00',
+      main: '#E84B1C',
+      light: '#FF7043',
+      dark: '#B93613',
       contrastText: '#ffffff',
     },
-    secondary: { main: '#FF6E40', light: '#FF8A65', dark: '#DD2C00' },
-    success: { main: '#2e7d32' },
-    warning: { main: '#ff9800' },
-    error: { main: '#d32f2f' },
-    info: { main: '#FF6E40' },
+    secondary: { main: '#38A7A0', light: '#67C7BE', dark: '#237B76' },
+    success: { main: '#48B987' },
+    warning: { main: '#E7A844' },
+    error: { main: '#E56A6F' },
+    info: { main: '#69AEEB' },
     background: {
-      default: '#0a0a0f',
-      paper: '#14141c',
+      default: '#101820',
+      paper: '#18232E',
     },
     text: {
-      primary: '#f2f2f7',
-      secondary: '#a7a7b2',
+      primary: '#EFF4F8',
+      secondary: '#A7B3BF',
     },
-    divider: 'rgba(255,255,255,0.08)',
+    divider: 'rgba(174,190,204,0.14)',
   },
   typography: {
     fontSize: 14,
     fontFamily: '"Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif',
-    h1: { fontWeight: 800, letterSpacing: '-0.03em' },
-    h2: { fontWeight: 800, letterSpacing: '-0.03em' },
-    h3: { fontWeight: 800, letterSpacing: '-0.03em' },
-    h4: { fontWeight: 800, letterSpacing: '-0.02em' },
+    h1: { fontWeight: 750, letterSpacing: '-0.035em' },
+    h2: { fontWeight: 750, letterSpacing: '-0.035em' },
+    h3: { fontWeight: 750, letterSpacing: '-0.035em' },
+    h4: { fontWeight: 750, letterSpacing: '-0.025em' },
     h5: { fontWeight: 700 },
     h6: { fontWeight: 700 },
     button: { textTransform: 'none', fontWeight: 600 },
   },
-  shape: { borderRadius: 12 },
+  shape: { borderRadius: 14 },
   components: {
     // Keep app-surface and text decisions in one place. Screen components can
     // still own layout, while print templates retain their paper-specific CSS.
     MuiCssBaseline: {
       styleOverrides: {
-        'html, body, #root': { backgroundColor: '#0a0a0f' },
-        body: { color: '#f2f2f7' },
+        'html, body, #root': { backgroundColor: '#101820' },
+        body: { color: '#EFF4F8' },
       },
     },
     MuiPaper: {
       styleOverrides: { root: { backgroundImage: 'none' } },
     },
-    MuiCard: {
+    MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          border: '1px solid rgba(255,255,255,0.08)',
-          background: '#14141c',
-          boxShadow: '0 10px 40px rgba(0,0,0,0.35)',
-          transition: 'transform .25s ease, border-color .25s ease, box-shadow .25s ease',
-          '&:hover': {
-            transform: 'translateY(-2px)',
-            borderColor: 'rgba(255,61,0,0.45)',
-            boxShadow: '0 18px 50px rgba(0,0,0,0.5), 0 0 24px rgba(255,61,0,0.12)',
+          borderRadius: 11,
+          backgroundColor: 'rgba(174,190,204,0.035)',
+          '& .MuiOutlinedInput-notchedOutline': { borderColor: 'rgba(174,190,204,0.19)' },
+          '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: 'rgba(174,190,204,0.38)' },
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: '#FF7043', borderWidth: 1 },
+        },
+        input: {
+          '&::placeholder': { color: '#91A0AE', opacity: 1 },
+          '&:-webkit-autofill': {
+            WebkitBoxShadow: '0 0 0 100px #1B2834 inset',
+            WebkitTextFillColor: '#EFF4F8',
+            caretColor: '#EFF4F8',
           },
         },
       },
     },
-    MuiButton: {
+    MuiInputLabel: {
+      styleOverrides: { root: { color: '#A7B3BF', '&.Mui-focused': { color: '#FF9677' } } },
+    },
+    MuiTableCell: {
       styleOverrides: {
-        root: { textTransform: 'none', fontWeight: 600 },
+        root: { borderColor: 'rgba(174,190,204,0.12)', padding: '13px 16px' },
+        head: { color: '#A7B3BF', fontSize: 11, fontWeight: 700, letterSpacing: '0.055em', textTransform: 'uppercase' },
+      },
+    },
+    MuiTableRow: {
+      styleOverrides: {
+        root: { '&:hover': { backgroundColor: 'rgba(174,190,204,0.045)' } },
+      },
+    },
+    MuiMenu: {
+      styleOverrides: { paper: { backgroundColor: '#1B2834', border: '1px solid rgba(174,190,204,0.14)' } },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          border: '1px solid rgba(174,190,204,0.13)',
+          background: '#18232E',
+          boxShadow: '0 5px 18px rgba(3,10,18,0.16)',
+          transition: 'border-color .18s ease, box-shadow .18s ease',
+          '&:hover': {
+            borderColor: 'rgba(232,75,28,0.42)',
+            boxShadow: '0 8px 24px rgba(3,10,18,0.22)',
+          },
+        },
       },
     },
     MuiTextField: {
       styleOverrides: {
         root: {
           '& .MuiOutlinedInput-root': {
-            '&:hover fieldset': { borderColor: 'rgba(255,61,0,0.4)' },
+            '&:hover fieldset': { borderColor: 'rgba(232,75,28,0.55)' },
+            '&.Mui-focused fieldset': { borderWidth: 1, borderColor: '#FF7043' },
           },
         },
       },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          fontWeight: 650,
+          borderRadius: 10,
+          minHeight: 40,
+          boxShadow: 'none',
+          transition: 'background-color .16s ease, border-color .16s ease, color .16s ease',
+        },
+      },
+    },
+    MuiDialog: {
+      styleOverrides: { paper: { border: '1px solid rgba(174,190,204,0.15)', backgroundImage: 'none' } },
     },
   },
 }

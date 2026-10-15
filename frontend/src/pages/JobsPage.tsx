@@ -40,15 +40,15 @@ const agentFromUnitType = (agentType?: string | null, unitType?: string | null) 
   inferExtinguisherAgent(unitType) || inferExtinguisherAgent(agentType) || agentType || ''
 
 const darkFormControlSx = {
-  '& .MuiInputBase-root': { bgcolor: '#0f0f13', borderRadius: 2 },
-  '& .MuiInputLabel-root': { color: '#9aa0b0' },
-  '& .MuiOutlinedInput-notchedOutline': { borderColor: '#2a2a33' },
+  '& .MuiInputBase-root': { bgcolor: '#17232E', borderRadius: 2 },
+  '& .MuiInputLabel-root': { color: '#A7B3BF' },
+  '& .MuiOutlinedInput-notchedOutline': { borderColor: 'rgba(174,190,204,0.19)' },
 }
 
 const darkSelectSx = {
-  bgcolor: '#0f0f13',
-  '& .MuiSelect-select': { color: '#ffffff' },
-  '& .MuiOutlinedInput-notchedOutline': { borderColor: '#2a2a33' },
+  bgcolor: '#17232E',
+  '& .MuiSelect-select': { color: '#EFF4F8' },
+  '& .MuiOutlinedInput-notchedOutline': { borderColor: 'rgba(174,190,204,0.19)' },
 }
 
 /** One vertical column — no side-by-side fields, no horizontal scrolling. */
@@ -250,7 +250,7 @@ function JobCardDialog({ job, techs, canAssign, canEdit, isAdmin, onAssign, onEd
 
   return (
     <Dialog open onClose={onClose} fullWidth maxWidth="md" fullScreen={isMobile} sx={{ '& .MuiPaper-root': { borderRadius: 3 } }}>
-      <DialogTitle sx={{ fontWeight: 800, bgcolor: '#12121a', color: '#f2f2f7' }}>
+      <DialogTitle sx={{ fontWeight: 800, bgcolor: '#1B2834', color: '#f2f2f7' }}>
         Full job card
         <IconButton onClick={onClose} className="ef-no-print" sx={{ position: 'absolute', right: 12, top: 12, color: '#9aa0b0' }}>
           <CloseIcon />

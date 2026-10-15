@@ -8,13 +8,13 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg'],
+      includeAssets: ['favicon.svg', 'logo.png'],
       manifest: {
         name: 'EFESMS — Extreme Fire Equipment & Services Management System',
         short_name: 'EFESMS',
         description: 'Fire equipment & services management for Extreme Fire Design Inc.',
-        theme_color: '#b71c1c',
-        background_color: '#f5f5f5',
+        theme_color: '#101820',
+        background_color: '#101820',
         display: 'standalone',
         start_url: '/login',
         icons: [

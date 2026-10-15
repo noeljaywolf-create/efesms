@@ -353,7 +353,7 @@ export default function CustomerProfileDialog({ customer, open, onClose, onEdit,
         <Box sx={{ display: 'flex', justifyContent: 'center', py: 10 }}><CircularProgress /></Box>
       ) : (
         <>
-          <Box sx={{ bgcolor: isMobile ? '#12121a' : '#ffffff', borderBottom: '1px solid #eef0f4' }}>
+          <Box sx={{ bgcolor: isMobile ? '#1B2834' : '#ffffff', borderBottom: '1px solid #eef0f4' }}>
             <DialogTitle sx={{ fontWeight: 800, display: 'flex', alignItems: 'center', gap: 1.5, color: isMobile ? '#f2f2f7' : 'inherit', pb: 1.5 }}>
               <Avatar sx={{ bgcolor: '#ff8a0014', color: '#ff8a00', fontWeight: 700 }}>{c.name.charAt(0).toUpperCase()}</Avatar>
               <Box sx={{ minWidth: 0 }}>
@@ -804,7 +804,7 @@ export default function CustomerProfileDialog({ customer, open, onClose, onEdit,
                   {profile?.fieldAudits.map((a) => (
                     <Box key={a.id} sx={{ border: '1px solid #eef0f4', borderRadius: 2, p: 1.5 }}>
                       <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 1 }}>
-                        <Chip size="small" label={a.field} sx={{ bgcolor: '#12121a', color: '#fff', fontFamily: 'monospace', fontWeight: 700, fontSize: 11 }} />
+                        <Chip size="small" label={a.field} sx={{ bgcolor: '#1B2834', color: '#fff', fontFamily: 'monospace', fontWeight: 700, fontSize: 11 }} />
                         <Typography variant="caption" sx={{ color: '#9ca3af', fontWeight: 700 }}>{fmt(a.createdAt)} · {a.userName} · {a.role}/{a.department}</Typography>
                       </Box>
                       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1 }}>

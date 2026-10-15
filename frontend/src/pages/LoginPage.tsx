@@ -175,7 +175,7 @@ export default function LoginPage() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        bgcolor: '#0a0a0f',
+        bgcolor: '#101820',
         backgroundImage: 'radial-gradient(1100px 600px at 50% -10%, rgba(255,61,0,0.12), transparent 60%)',
         px: 2,
         py: 4,
