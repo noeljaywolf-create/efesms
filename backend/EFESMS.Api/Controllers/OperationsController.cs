@@ -2582,7 +2582,6 @@ _db.JobCards.Add(job);
             text = System.Net.WebUtility.HtmlDecode(text);
             return Regex.Replace(text, "[ \t]+\n", "\n").Replace("\r", "").Trim();
         }
-        try { System.IO.File.WriteAllText(System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop), "debug_ext.txt"), $"ext={ext} fileName={fileName} bytes={bytes.Length}"); } catch {}
         if (ext is ".pdf")
         {
             // Use simple text extraction (p.Text) which is already in reading order and handles tables correctly for most PDFs
@@ -2835,7 +2834,6 @@ _db.JobCards.Add(job);
             null, null, null, null, null, null, null, null, null, false,
             null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, storedFileId);
         var text = await ExtractDocumentTextAsync(bytes, fileName);
-        try { System.IO.File.WriteAllText(System.IO.Path.Combine(System.IO.Path.GetTempPath(), "last_extract.txt"), text ?? ""); } catch {}
         if (string.IsNullOrWhiteSpace(text)) return empty with { StoredFileId = storedFileId };
         text = text.Replace("\uFEFF", "").Trim();
 
@@ -3021,7 +3019,6 @@ _db.JobCards.Add(job);
         var bottomUsd = Regex.Matches(text, @"USD\s*(\d[\d\s,]*\.\d{1,2})", RegexOptions.IgnoreCase)
             .Select(m => TryParseMoney(m.Groups[1].Value, out var v) ? v : (decimal?)null)
             .Where(v => v.HasValue).Select(v => v!.Value).ToList();
-        try { System.IO.File.WriteAllText(System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop), "bottomUsd.txt"), $"count {bottomUsd.Count} vals {string.Join(",", bottomUsd)} hasUSD {text.Contains("USD")} sub {subtotal} tax {taxAmt} tot {total}"); } catch {}
         if (bottomUsd.Count >= 3)
         {
             bottomUsd.Sort();
