@@ -105,7 +105,7 @@ export default function RemindersPage() {
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 1 }}>
               <Switch checked={!muted} onChange={(e) => setNotificationsEnabled(e.target.checked)} slotProps={{ input: { 'aria-label': 'Allow smart notifications' } }} />
               <Typography variant="body2" sx={{ color: '#d7d9e0', fontWeight: 700 }}>
-                {muted ? 'Notifications denied' : 'Notifications allowed'}
+                {muted ? 'System reminders muted' : 'System reminders enabled'}
               </Typography>
             </Box>
           )}
@@ -140,6 +140,11 @@ export default function RemindersPage() {
       {pushState === 'denied' && (
         <Alert severity="warning" sx={{ mb: 2 }}>
         Device notifications are blocked by this browser. Allow them in the browser’s site settings, then enable notifications here.
+        </Alert>
+      )}
+      {pushState === 'granted' && !muted && (
+        <Alert severity="success" sx={{ mb: 2 }}>
+          Device notifications are allowed. Urgent and overdue reminders are grouped into one daily alert while EFESMS is open.
         </Alert>
       )}
 

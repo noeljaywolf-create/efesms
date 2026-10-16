@@ -48,6 +48,7 @@ import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined'
 import { NAV } from '../lib/navigation'
 import { useApp } from '../App'
 import { api } from '../api/client'
+import { notifyUrgentReminders, type ReminderNotice } from '../lib/notify'
 
 // Each section keeps its own hue so people can identify modules at a glance.
 const ICONS: Record<string, ReactNode> = {
@@ -109,6 +110,7 @@ export default function AppLayout() {
   const [bellSaving, setBellSaving] = useState(false)
   const role = localStorage.getItem('efesms_role') ?? 'admin'
   const bellLoaded = useRef(false)
+  const lastReminderCheck = useRef(0)
 
   // Keep the bell connected to the saved setting and only surface reminders
   // while notifications are enabled in the shared system settings.
@@ -120,9 +122,12 @@ export default function AppLayout() {
         const { data: settings } = await api.get<Record<string, any>>('/settings')
         setBellEnabled(settings.notificationsEnabled !== false)
         if (settings.notificationsEnabled === false) return
-        const { data } = await api.post<{ reminders: { category: string; severity: string; message: string; daysUntilDue: number }[] }>('/operations/analyze/full', {})
-        const urgent = (data.reminders ?? [])
-          .filter((r) => r.severity === 'Critical' || r.daysUntilDue < 0)
+        const { data } = await api.post<{ reminders: ReminderNotice[] }>('/operations/analyze/full', {})
+        lastReminderCheck.current = Date.now()
+        const reminders = data.reminders ?? []
+        void notifyUrgentReminders(reminders)
+        const urgent = reminders
+          .filter((r) => r.severity === 'Critical' || (r.daysUntilDue ?? 0) < 0)
           .slice(0, 5)
         urgent.forEach((r) => addNotification(
           `[${r.category}] ${r.message}`,
@@ -135,6 +140,19 @@ export default function AppLayout() {
       }
     }
     loadBell()
+    // Recheck when a user returns to the app and periodically during long sessions.
+    const checkOnFocus = () => {
+      if (document.visibilityState !== 'visible' || Date.now() - lastReminderCheck.current < 15 * 60 * 1000) return
+      void loadBell()
+    }
+    const timer = window.setInterval(() => {
+      if (document.visibilityState === 'visible') void loadBell()
+    }, 30 * 60 * 1000)
+    document.addEventListener('visibilitychange', checkOnFocus)
+    return () => {
+      window.clearInterval(timer)
+      document.removeEventListener('visibilitychange', checkOnFocus)
+    }
   }, [addNotification])
 
   const toggleNotifications = async () => {
@@ -147,9 +165,10 @@ export default function AppLayout() {
       if (!enabled) {
         notifications.forEach((n) => removeNotification(n.id))
       } else {
-        const { data } = await api.post<{ reminders: { category: string; severity: string; message: string; daysUntilDue: number }[] }>('/operations/analyze/full', {})
+        const { data } = await api.post<{ reminders: ReminderNotice[] }>('/operations/analyze/full', {})
+        void notifyUrgentReminders(data.reminders ?? [])
         ;(data.reminders ?? [])
-          .filter((r) => r.severity === 'Critical' || r.daysUntilDue < 0)
+          .filter((r) => r.severity === 'Critical' || (r.daysUntilDue ?? 0) < 0)
           .slice(0, 5)
           .forEach((r) => addNotification(`[${r.category}] ${r.message}`, r.severity === 'Critical' ? 'error' : 'warning'))
       }
